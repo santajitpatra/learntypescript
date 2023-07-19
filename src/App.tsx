@@ -1,13 +1,16 @@
 import React from 'react';
-import './App.css';
 import Button from './components/Button';
 import { CounterProvider } from './provider/Counter';
+import Todo from './components/Todo';
 
-function App() {
+const App:React.FC = () => {
   return (
     <div className="App">
       <CounterProvider>
         <Button onClick={() => alert("K.O")} text={"Click Me"} />
+        <Todo />
+        <Todo />
+        <Todo />
       </CounterProvider>
     </div>
   );
