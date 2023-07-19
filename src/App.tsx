@@ -1,11 +1,14 @@
 import React from 'react';
 import './App.css';
 import Button from './components/Button';
+import { CounterProvider } from './provider/Counter';
 
 function App() {
   return (
     <div className="App">
-      <Button onClick={() => alert("K.O")} text={"Click Me"} />
+      <CounterProvider>
+        <Button onClick={() => alert("K.O")} text={"Click Me"} />
+      </CounterProvider>
     </div>
   );
 }
