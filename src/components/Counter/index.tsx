@@ -1,7 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
+import { unmountComponentAtNode } from "react-dom";
 const Counter: React.FC = (props) => {
   const [counter, setCounter] = useState<number>(0);
+
+  useEffect(() => {
+    console.log("first counter Mounted")
+    return function () {
+        console.log("Counter is unmount")
+    }
+  },[])
+
+    useEffect(() => {
+      console.log("user updated counter ");
+    }, [counter]);
 
   const handleIncrement = () => {
     setCounter(counter + 1);
