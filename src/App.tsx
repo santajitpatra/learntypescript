@@ -2,6 +2,7 @@ import React from "react";
 import Button from "./components/Button";
 import { CounterProvider } from "./provider/Counter";
 import Todo from "./components/Todo";
+import Counter from "./components/Counter";
 
 const myTodoItems = [
   { id: 1, title: "I want to do something" },
@@ -15,6 +16,7 @@ const App: React.FC = (props) => {
       <CounterProvider>
         <Button onClick={() => alert("K.O")} text={"Click Me"} />
         <Todo items={myTodoItems} />
+        <Counter/>
       </CounterProvider>
     </div>
   );
