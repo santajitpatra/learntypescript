@@ -4,6 +4,7 @@ import { CounterProvider } from "./provider/Counter";
 import Todo from "./components/Todo";
 import Counter from "./components/Counter";
 import TicTacToe from "./components/TicTacToe";
+import APICall from "./components/APICall";
 
 const myTodoItems = [
   { id: 1, title: "I want to do something" },
@@ -22,6 +23,7 @@ const App: React.FC = (props) => {
         <button onClick={(e) => setState(!state)}>Toggle Counter</button>
         {state ? <Counter /> : ""}
         <TicTacToe/>
+        <APICall/>
       </CounterProvider>
     </div>
   );
