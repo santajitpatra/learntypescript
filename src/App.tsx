@@ -5,6 +5,9 @@ import Todo from "./components/Todo";
 import Counter from "./components/Counter";
 import TicTacToe from "./components/TicTacToe";
 import APICall from "./components/APICall";
+import { useAppDispatch, useAppSelector } from "./redux/hooks";
+import { decrement, increment } from "./redux/slices/counter";
+import CounterComponent from "./components/CounterComponent";
 
 const myTodoItems = [
   { id: 1, title: "I want to do something" },
@@ -14,6 +17,9 @@ const myTodoItems = [
 
 const App: React.FC = (props) => {
   const [state, setState] = useState<boolean>(true);
+  const count = useAppSelector((state) => state.counter);
+  const dispstch = useAppDispatch();
+
 
   return (
     <div className="App">
@@ -22,8 +28,12 @@ const App: React.FC = (props) => {
         <Todo items={myTodoItems} />
         <button onClick={(e) => setState(!state)}>Toggle Counter</button>
         {state ? <Counter /> : ""}
-        <TicTacToe/>
-        <APICall/>
+        <TicTacToe />
+        <APICall />
+        <h2>Count is {count} </h2>
+        <button onClick={() => dispstch(increment())}>Increment</button>
+        <button onClick={() => dispstch(decrement())}>Decrement</button>
+        <CounterComponent/>
       </CounterProvider>
     </div>
   );
