@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import axios from "axios";
+
 
 interface TodoItem {
   completed: boolean;
@@ -11,9 +13,8 @@ const APICall: React.FC = () => {
   const [todos, setTodos] = useState<TodoItem[]>([]);
 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/todos")
-      .then((res) => res.json())
-      .then((e) => setTodos(e as TodoItem[]));
+    axios.get<TodoItem[]>("https://jsonplaceholder.typicode.com/todos")
+      .then((res) => setTodos(res.data));
   }, []);
   return (
     <div>
